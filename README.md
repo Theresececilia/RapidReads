@@ -1,132 +1,42 @@
-# Blog Assignment
 
-Welcome to the final assignment! This repository serves as a starter kit for developing your own blog page, which could become part of your portfolio website.
+# Beyond the Pages
+Welcome to Beyond the Pages, a captivating blog website where thoughts transcend the boundaries of books, articles, and news. Dive into a world of intellectual exploration, where you can unleash your literary musings and engage in vibrant discussions.
 
-This task is intended to enhance your understanding of full-stack web development, focusing on aspects like database interaction, authentication, and CRUD (Create, Read, Update, Delete) operations. By the end of this assignment, you'll gain practical experience in managing relational data, structuring and querying a PostgreSQL database, and handling user authentication.
-
-## Technologies
-
-1. **Next.js**: A powerful JavaScript framework developed by Vercel.
-   https://nextjs.org/docs
-
-2. **Supabase**: We'll use Supabase for our database (Postgres) and authentication needs.
-   https://supabase.com/docs/reference/javascript/installing
-
-3. **PostgreSQL**: An open-source relational database management system, known for its extensibility and SQL compliance.
-
-4. **SWR**: A React Hooks library for data fetching, created by Vercel. SWR automatically manages caching, revalidation, and maintains a real-time, always-synced state. The name "SWR" is derived from the cache invalidation strategy stale-while-revalidate.
-   https://swr.vercel.app/docs/getting-started
+## About
+Beyond the Pages is a platform that empowers avid readers, thinkers, and knowledge seekers to share their unique perspectives on various literary works, articles, and news. Whether you're captivated by a bestselling novel, intrigued by an insightful article, or want to discuss the latest news headlines, this is the space to spark thoughtful conversations.
 
 ## Features
+Create Engaging Posts: Pen down your profound thoughts, literary analyses, and critical reviews on books, articles, and news. Share your intellectual prowess with the community.
 
-- Full-stack application
-- Integration with PostgreSQL database
-- CRUD functionality
-- User authentication
+## Profile Creation: Build your identity on Beyond the Pages. Create a personalized profile that showcases your interests, reading preferences, and favorite genres. Connect with like-minded individuals who share your passion for literature and knowledge.
 
-## Getting Started
+## Vibrant Discussions: Engage in lively discussions and dialogues with fellow readers and thinkers. Explore different perspectives, exchange ideas, and expand your intellectual horizons.
 
-1. Clone this repository to your local system.
-2. Navigate into the cloned repository.
-3. Install the required packages using `npm install` or `yarn install`.
-4. Create a `.env.local` file and populate it with the necessary Supabase credentials (Supabase URL and Supabase anon key). Refer to the example file (.env.local.example) in the root folder for guidance.
-5. Run the development server with `npm run dev` or `yarn dev`.
-6. To remove the existing GitHub connection and push to your own repository, execute the following commands in your terminal:
-   Replace `<your-new-repository-url>` with the URL of your new repository on GitHub. This will reinitialize the git connection to your new repository.
+## Thoughtful Comments: Leave insightful comments on posts that pique your interest. Contribute to the ongoing conversations, offer valuable insights, and foster a community of knowledge enthusiasts.
 
-## Requirements
+## Stay Connected: Keep up with the latest discussions and updates by receiving notifications for new posts, comments, and replies. Stay connected to the pulse of intellectual discourse within the Beyond the Pages community.
 
-### Passing Grade (Godkänt)
+## How to Get Started
+Sign Up: Create your Beyond the Pages account to unlock the full potential of the platform. Set up your profile and let the world know about your literary passions.
 
-1. **Authentication**: Implement user registration and login using Supabase Auth. Users should be able to register, login, and logout.
+## Create Posts: Share your thoughts, reflections, and reviews on books, articles, and news. Craft engaging posts that ignite conversations and inspire others to delve into the realms of literature.
 
-2. **Database Tables and Relational Data**: Establish the following tables in your PostgreSQL database:
+## Engage with the Community: Explore the vast library of posts created by fellow members. Leave thoughtful comments, join ongoing discussions, and connect with individuals who share your love for intellectual exploration.
 
-   - **Users**: A table for storing user information, managed by Supabase Auth.
-   - **Posts**: A table for storing blog posts. Each post should relate to the user who created it (you), implying a one-to-many relationship.
-   - **Comments**: A table for storing comments. Each comment should have relations with the user who wrote it and the post it belongs to, necessitating a relationship among the Users, Posts, and Comments tables.
-
-3. **Comments**: Allow anyone to comment on posts.
-
-4. **CRUD Operations**:
-
-   - **Posts** Implement the nessecary CRUD operations for posts and comments. An authenticated user (you) should have the ability to create, read, update, and delete their own posts.
-
-   - **Comments**: A visitor should be able to post a comment. An author should be able to delete a comment if it belongs to a post created by them.
-
-5. **Data Sync**: Use SWR for synchronizing client and server data. Changes to the data should reflect immediately in the user interface.
-
-6. **Image Upload**: Enable authors to upload an image to their post.
-
-7. **Create post page**: Once the Authentication is in place, the create post page should be hidden and not accessable for non authenticated users.
-
-### Excellent Grade (Väl Godkänt)
-
-In addition to fulfilling the requirements for a passing grade, these advanced requirements challenge you to incorporate a higher level of complexity, enhancing your understanding of advanced web development concepts.
-
-1. **Row-level Security**: Ensure that a user can only update or delete their own posts.
-
-2. **Search Functionality**: Implement a search function allowing users to search for posts based on title.
-
-3. **Nested Comments**: Enable users to reply to other comments.
-
-## Assignment Submission
-
-Upon completion of your assignment, please take the following steps to submit your work:
-
-1. **Repository Access**: Share the URL of your GitHub repository with me. Make sure that I have been given access to the repository to review your code.
-
-2. **Deployment**: Deploy your application to Vercel. Share the URL of the deployed application. Ensure that the application is accessible and functioning as expected on the deployed URL.
-
-By sharing both the repository and the deployed URL, it will allow me to review both your code and the live version of your application.
-
-## Tables
-
-Below is the basic structure of the data tables that is the minimum requirement.
-
-### Users:
-
-id: uuid
-email: text
-
-### Posts:
-
-id: uuid
-title: text
-user_id: uuid // foreign key to users table
-slug: text // needs to be unique
-created_at: timestamptz
-body: text
-
-### Comments:
-
-id: uuid
-author: text
-created_at: timestamptz
-post_id: uuid // foreign key to posts table
-comment: text
-
-## Deadline
-
-The final deadline for submitting your assignment is **June 26th**. Please ensure your project is completed and submitted before this date. Respecting this deadline will give me a fair chance to review everyone's projects in a timely manner.
+## Discover New Perspectives: Embrace the opportunity to explore diverse viewpoints and expand your understanding of literature, culture, and the world. Engage in respectful debates, gain fresh insights, and foster an environment of intellectual growth.
 
 ## Optional Features
+For those seeking to enhance their Beyond the Pages experience, consider exploring these optional features:
 
-Finished early and looking for a greater challenge? Consider adding these optional features to your blog:
+### Personalized Reading Lists: Curate and share reading lists based on genres, themes, or personal recommendations. Inspire others with your literary selections and discover new books to broaden your reading horizons.
 
-1. **Profile Information**: Enhance your "Home" page and "About" page with your personal profile information. Make it stand out and represent your unique identity!
-   This project is inspired by Lee Robinsons portfolio [website](https://leerob.io/). Please take inspiration from his minimalistic home & about page ✨
+### Featured Authors: Highlight influential authors, their works, and their impact on literature. Delve into their writing styles, inspirations, and the legacies they've left behind.
 
-2. **Personalized Styles**: Bring your blog to life by adding your own styles and making it pop. Show off your skills with CSS and make your blog truly your own.
+### Monthly Reading Challenges: Engage in community-wide reading challenges that encourage members to explore new genres, discover hidden gems, and share their reading experiences.
 
-3. **TypeScript**: The project is already configured with TypeScript. If you're up for a challenge, consider converting the `.js` & `.jsx` files to `.tsx` and `.ts` files. Delve into the world of TypeScript and make your files TypeScript-friendly.
+### Author Interviews: Conduct interviews with authors, journalists, and literary figures. Gain insights into their creative processes, inspirations, and the stories behind their acclaimed works.
 
-4. **Pagination**: As your blog grows, so does the list of blog posts. Implement pagination to make it easy for your readers to navigate through your posts.
+## Join the Community
+Beyond the Pages invites you to become part of a vibrant community of passionate readers, critical thinkers, and knowledge seekers. Unleash your thoughts, immerse yourself in captivating discussions, and embark on an intellectual journey that goes beyond the pages.
 
-5. **Prevent Bots**: Currently, any user can leave comments, even potential bots! To prevent spam comments, consider implementing reCAPTCHA. Learn more about it [here](https://www.google.com/recaptcha/about/).
-
-Feel free to choose one or more from the list above, or come up with your own ideas to extend the functionality of your blog. Have fun and get creative!
-
----
-
-Dive into coding, and let's create an impressive blog/portfolio page together! Good luck!
+# Join us today and expand your literary horizons at Beyond the Pages.
