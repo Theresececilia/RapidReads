@@ -1,5 +1,5 @@
 import {supabase} from "../lib/supabaseClient";
-export const postsCacheKey = '/api/blogs'
+export const postsCacheKey = '/api/posts'
 
 export const getPosts = async () => {
   const { data, error, status } = await supabase
@@ -12,19 +12,45 @@ export const getPosts = async () => {
 export const getPost = async ({ slug }) => {
   const { data, error, status } = await supabase
   .from('Posts')
-  .select()
+  .select(`
+  *,
+  Users (
+    alias
+  )
+`)
   .single()
   .eq('slug', slug)
 
   return {data}
 }
 
-export const addPost = () => {
-  //Handle add post here
+export const addPost = async (_, {arg: newPost}) => {
+  const {slug, title, body } = newPost
+
+  const { data, error } = await supabase
+  .from('Posts')
+  .insert(newPost)
+  .select()
+  .single();
+
+  if (error) {
+    console.log("Failed to add new data.");
+  }
+ 
+  return {data};
 };
 
-export const removePost = () => {
-  //Handle remove post here
+export const removePost = async (_, {arg: id}) => {
+  const { data, error } = await supabase
+  .from('Posts')
+  .delete()
+  .eq('id', id)
+
+  if (error) {
+    console.log("Failed to delete data.");
+  }
+
+  return {data};
 };
 
 export const editPost = () => {

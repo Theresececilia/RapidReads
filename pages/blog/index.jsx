@@ -1,16 +1,14 @@
 import Link from "next/link";
 import styles from "./blog.module.css";
 import Heading from "@components/heading";
-import { getPosts } from "../../api-routes/posts";
+import { getPosts, postsCacheKey } from "../../api-routes/posts";
 import useSWR from 'swr'
-
-const cacheKey = "/posts"
 
 export default function Blog() {  
   const {
     data: {data = []} = {}, 
     error
-  } = useSWR(cacheKey, getPosts)
+  } = useSWR(postsCacheKey, getPosts)
 
   return (
     <section>
