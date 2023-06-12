@@ -7,7 +7,7 @@ import Heading from "@components/heading";
 import BlogImageBanner from "@components/blog-image-banner";
 import useSWRMutation from 'swr/mutation';
 import useSWR from 'swr'
-import { removePost, getPost, postsCacheKey } from "../../../api-routes/posts";
+import { removePost, getPost, editPost, postsCacheKey } from "../../../api-routes/posts";
 
 export default function BlogPost() {
   const router = useRouter();
@@ -23,8 +23,8 @@ export default function BlogPost() {
   });
 
   const handleDeletePost = async (id) => {
-    const { status, data, error } = await deleteTrigger(id)
-
+    const { status, error } = await deleteTrigger(id)
+    console.log(status)
     if (!error) {
       router.push(`/blog`);
     }
@@ -49,7 +49,7 @@ export default function BlogPost() {
 
         {/* The Delete & Edit part should only be showed if you are authenticated and you are the author */}
         <div className={styles.buttonContainer}>
-          <Button onClick={handleDeletePost}>Delete</Button>
+          <Button onClick={() => handleDeletePost(data.id)}>Delete</Button>
           <Button onClick={handleEditPost}>Edit</Button>
         </div>
       </section>

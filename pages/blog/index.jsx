@@ -3,8 +3,11 @@ import styles from "./blog.module.css";
 import Heading from "@components/heading";
 import { getPosts, postsCacheKey } from "../../api-routes/posts";
 import useSWR from 'swr'
+import { useUser } from "@supabase/auth-helpers-react";
 
 export default function Blog() {  
+  const user = useUser()
+
   const {
     data: {data = []} = {}, 
     error

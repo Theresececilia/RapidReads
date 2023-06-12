@@ -56,6 +56,11 @@
   }
 }
 
+.navigationBtn {
+  text-align: left;
+  padding: 5px 10px;
+}
+
 .navigationItem {
   display: flex;
   align-items: middle;
@@ -64,7 +69,8 @@
   text-decoration: none;
 }
 
-.navigationItem:hover {
+.navigationItem:hover,
+.navigationBtn:hover {
   color: #333;
 }
 
@@ -86,7 +92,8 @@
   white-space: nowrap;
 }
 
-.linkName:hover {
+.linkName:hover,
+.navigationBtn:hover {
   transition: all;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
