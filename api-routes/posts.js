@@ -1,4 +1,5 @@
 import { supabase } from "../lib/supabaseClient";
+import { uploadImage } from "../utils/uploadImage";
 export const postsCacheKey = '/api/posts'
 
 export const getPosts = async () => {
@@ -26,16 +27,26 @@ export const getPost = async ({ slug }) => {
 
 export const addPost = async (_, {arg: newPost}) => {
   const {slug, title, body } = newPost
-
+  let image = ""
+  if(newPost?.image) {
+   const {publicUrl, error } = await uploadImage(newPost?.image)
+   if(!error) {
+    image = publicUrl;
+   }
+    //create a function that takes in the uploaded image fromm the client
+    //upload it to our bucket
+    //get the public url and return it
+  }
+  console.log(image, newPost)
   const { data, error } = await supabase
   .from('posts')
-  .insert(newPost)
+  .insert(...newPost, image)
   .select()
   .single();
 
-  if (error) {
-    console.log("Failed to add new data.");
-  }
+  // if (error) {
+  //   console.log("Failed to add new data.");
+  // }
  
   return {data};
 };
@@ -55,6 +66,7 @@ export const removePost = async (_, {arg: id}) => {
 };
 
 export const editPost = async (_, {arg: updatedPost}) => {
+  let image = updatedPost?.image ?? ""
   const { error, status, data } = await supabase
   .from('posts')
   .update(updatedPost)
