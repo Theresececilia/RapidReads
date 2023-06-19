@@ -7,12 +7,14 @@ import Heading from "@components/heading";
 import BlogImageBanner from "@components/blog-image-banner";
 import useSWRMutation from 'swr/mutation';
 import useSWR from 'swr'
-import { removePost, getPost, editPost, postsCacheKey } from "../../../api-routes/posts";
+import { removePost, getPost, postsCacheKey } from "../../../api-routes/posts";
+import { useUser } from "@supabase/auth-helpers-react";
 
 export default function BlogPost() {
   const router = useRouter();
-
+  const user = useUser()
   const { slug } = router.query;
+  console.log(user)
 
   const {data: { data = [] } = {}, error} = useSWR(slug ? `${postsCacheKey}${slug}` : null, () => getPost({slug}))
 
@@ -22,9 +24,11 @@ export default function BlogPost() {
     }
   });
 
-  const handleDeletePost = async (id) => {
-    const { status, error } = await deleteTrigger(id)
-    console.log(status)
+  const handleDeletePost = async () => {
+    const postId = data.id
+    const { status, error } = await deleteTrigger(postId)
+    console.log(status, postId, error)
+
     if (!error) {
       router.push(`/blog`);
     }
@@ -39,7 +43,7 @@ export default function BlogPost() {
     <>
       <section className={styles.container}>
         <Heading>{data.title}</Heading>
-        {data?.image && <BlogImageBanner src={post.image} alt={data.title} />}
+        {data?.image && <BlogImageBanner src={data.image} alt={data.title} />}
         <div className={styles.dateContainer}>
           <time className={styles.date}>{data.created_at}</time>
           <div className={styles.border} />

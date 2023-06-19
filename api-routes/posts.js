@@ -30,19 +30,19 @@ export const addPost = async (_, {arg: newPost}) => {
   let image = ""
   if(newPost?.image) {
    const {publicUrl, error } = await uploadImage(newPost?.image)
+
    if(!error) {
     image = publicUrl;
    }
-    //create a function that takes in the uploaded image fromm the client
-    //upload it to our bucket
-    //get the public url and return it
   }
-  console.log(image, newPost)
+  console.log(image)
   const { data, error } = await supabase
   .from('posts')
-  .insert(...newPost, image)
+  .insert({...newPost, image})
   .select()
   .single();
+
+  console.log(error)
 
   // if (error) {
   //   console.log("Failed to add new data.");
@@ -51,28 +51,40 @@ export const addPost = async (_, {arg: newPost}) => {
   return {data};
 };
 
-export const removePost = async (_, {arg: id}) => {
-  const { error } = await supabase
+export const removePost = async (_, {arg: postId}) => {
+  const { error, data } = await supabase
   .from('posts')
   .delete()
-  .eq('id', id)
+  .eq('id', postId)
 
-  console.log(id)
+  console.log(postId)
   if (error) {
-    console.log("Failed to delete data.");
+    console.log("Failed to delete data.", error);
   }
 
-  return({message: "Character has been deleted."})
+  return {error, data}
 };
 
-export const editPost = async (_, {arg: updatedPost}) => {
-  let image = updatedPost?.image ?? ""
-  const { error, status, data } = await supabase
-  .from('posts')
-  .update(updatedPost)
-  .eq('id', updatedPost.id)
-  .single()
-  .select()
+export const editPost = async (_, { arg: editedPost }) => {
+  let image = editedPost?.image ?? "";
 
-  return { data, status };
+  const isNewImage = typeof image === "object" && image !== null;
+
+  if (isNewImage) {
+    const { publicUrl, error } = await uploadImage(editedPost?.image);
+
+    if (!error) {
+      image = publicUrl;
+    }
+  }
+
+  const { data, error, status } = await supabase
+    .from("posts")
+    .update({ ...editedPost, image })
+    .select()
+    .single()
+    .eq("id", editedPost.id);
+
+  return { error, status, data };
+
 };

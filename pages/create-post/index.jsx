@@ -19,6 +19,7 @@ export default function CreatePost() {
  
   const handleOnSubmit = async ({ editorContent, titleInput, image }) => {
     const slug = createSlug(titleInput);
+    
     const newPost = {
       title: titleInput,
       body: editorContent,

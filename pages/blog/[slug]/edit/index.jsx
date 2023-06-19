@@ -8,7 +8,6 @@ import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 
 export default function EditBlogPost() {
   const router = useRouter();
-  /* Use this slug to fetch the post from the database */
   const { slug } = router.query;
 
   const { data: { data: post = {} } = {}, error, isLoading } = useSWR(slug ? `${postsCacheKey}${slug}` : null, () =>
