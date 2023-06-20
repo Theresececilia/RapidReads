@@ -6,7 +6,7 @@ import Logo from '../../public/assets/images/rapidreads-logo.png';
 
 export default function RootLayout({ children }) {
   return (
-    <div className="flex flex-col bg-darkColor text-lightColor w-full min-h-screen p-6">
+    <div className="flex flex-col text-lightColor w-full min-h-screen p-6 bg-gradient-to-tr from-darkColor to-zinc-800">
       <div className="flex flex-col md:flex-row items-center justify-between">
         <Image
           src={Logo}
