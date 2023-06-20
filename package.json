@@ -36,5 +36,8 @@
     "react-modal": "^3.16.1",
     "swr": "^2.1.5",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }

@@ -20,12 +20,12 @@ export const addComment = async (_, { arg: newComment }) => {
   return { data, error, status };
 };
 
-export const removeComment = async (_, { arg: id }) => {
-  const { error, status } = await supabase
+export const deleteComment = async (_, { arg: id }) => {
+  const { data, error, status } = await supabase
     .from('comments')
-    .delete()
+    .delete(id)
     .single()
     .eq('id', id);
- console.log(status, error)
-  return { error, status };
+
+  return { data, error, status };
 };

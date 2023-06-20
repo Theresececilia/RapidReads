@@ -3,7 +3,7 @@ import Comment from '../comment';
 import {
   getComments,
   commentsCacheKey,
-} from '../../../../../api-routes/comments';
+} from '@/api-routes/comments';
 import useSWR from 'swr';
 
 export default function Comments({ postId }) {
