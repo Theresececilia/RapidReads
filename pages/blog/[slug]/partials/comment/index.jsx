@@ -1,8 +1,10 @@
 import Button from "@components/button";
 import styles from "./comment.module.css";
+import { removeComment } from "@/api-routes/comments";
 
 export default function Comment({ comment, createdAt, author, id }) {
-  const handleDelete = () => {
+  const handleDelete = async () => {
+    const { status, error } = await removeComment({id})
     console.log({ id });
   };
   return (

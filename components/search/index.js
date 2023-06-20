@@ -1,26 +1,15 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { searchPosts } from '../../api-routes/posts'
+import { searchPosts } from '../../api-routes/search'
+import styles from './search.module.css'
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const router = useRouter();
-  
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    try {
-      const { data, error } = await searchPosts(null, { query: searchQuery });
-      if (error) {
-        throw new Error(error.message);
-      }
-      // Handle the search results, e.g., redirect to a search results page
-      router.push(`/blog/${encodeURIComponent(searchQuery)}`);
-      setSearchQuery('');
-    } catch (error) {
-      console.error('Error searching posts:', error);
-      // Handle the error, e.g., display an error message to the user
-    }
+  const handleSearch = async () => {
+    const { data } = await searchPosts(searchQuery)
+
   };
 
   
@@ -32,9 +21,10 @@ const Search = () => {
           id="title"
           name="title"
           value={searchQuery}
+          className={styles.searchBar}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className={styles.searchBtn}>Search</button>
       </form>
     </div>
   );

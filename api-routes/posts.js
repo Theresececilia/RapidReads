@@ -42,11 +42,9 @@ export const addPost = async (_, {arg: newPost}) => {
   .select()
   .single();
 
-  console.log(error)
-
-  // if (error) {
-  //   console.log("Failed to add new data.");
-  // }
+  if (error) {
+    console.log("Failed to add new data.");
+  }
  
   return {data};
 };

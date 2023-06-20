@@ -14,7 +14,6 @@ export default function BlogPost() {
   const router = useRouter();
   const user = useUser()
   const { slug } = router.query;
-  console.log(user)
 
   const {data: { data = [] } = {}, error} = useSWR(slug ? `${postsCacheKey}${slug}` : null, () => getPost({slug}))
 
@@ -27,7 +26,6 @@ export default function BlogPost() {
   const handleDeletePost = async () => {
     const postId = data.id
     const { status, error } = await deleteTrigger(postId)
-    console.log(status, postId, error)
 
     if (!error) {
       router.push(`/blog`);

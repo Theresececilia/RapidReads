@@ -21,11 +21,11 @@ export const addComment = async (_, { arg: newComment }) => {
 };
 
 export const removeComment = async (_, { arg: id }) => {
-  const { data, error, status } = await supabase
+  const { error, status } = await supabase
     .from('comments')
-    .delete(id)
+    .delete()
     .single()
     .eq('id', id);
-
-  return { data, error, status };
+ console.log(status, error)
+  return { error, status };
 };
