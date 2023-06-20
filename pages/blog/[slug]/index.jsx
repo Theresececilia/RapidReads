@@ -47,19 +47,19 @@ export default function BlogPost() {
           <div className={styles.border} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: data.body }} />
-        <span className={styles.author}>Author: {data?.Users?.alias ?? "Ghost Writer"}</span>
+        <span className={styles.author}>
+          Author: {data?.Users?.alias ?? 'Ghost Writer'}
+        </span>
 
         {/* The Delete & Edit part should only be showed if you are authenticated and you are the author */}
-        <div className={styles.buttonContainer}>
-          <Button onClick={() => handleDeletePost(data.id)}>Delete</Button>
+        <div className='flex text-darkColor mt-2'>
+          <Button onClick={() => handleDeletePost(data.id)} className='mr-2'>Delete</Button>
           <Button onClick={handleEditPost}>Edit</Button>
         </div>
       </section>
-
-      <Comments postId={data.id} />
-
       {/* This component should only be displayed if a user is authenticated */}
       <AddComment postId={data.id} />
+      <Comments postId={data.id} />
     </>
   );
 }

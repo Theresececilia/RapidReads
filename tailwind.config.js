@@ -7,16 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        satoshi: ['Satoshi', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
-      },
       colors: {
-        accentGreen: '#E7FAAA',
-        accentPurple: '#B89BDF',
-        lightColor: '#FFFFFF',
+        accentGreen: '#99ddcc',
+        accentPurple: '#c091ff',
+        lightColor: '#Ffffff',
         darkColor: '#232323',
-        darkGrey: '#454545',
+        darkGrey: '#4c4c4c',
         lightGrey: '#696969',
       },
     },

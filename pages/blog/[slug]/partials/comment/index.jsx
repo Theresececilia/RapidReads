@@ -56,22 +56,22 @@ export default function Comment({ comment, createdAt, author, id: commentId }) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className='w-2/'>
       <p>{comment}</p>
-      <p className={styles.author}>{author}</p>
+      <p className='text-accentPurple font-bold'>- {author}</p>
       <time className={styles.date}>{createdAt}</time>
 
       {data.map((reply) => (
         <div key={reply.id}>
           <p>| {reply.reply}</p>
-          <button onClick={() => handledeleteReply(reply.id)}>Remove reply</button>
+          <button onClick={() => handledeleteReply(reply.id)} className="font-light pb-2 ">Remove reply</button>
         </div>
       ))}
 
-      <form ref={formRef} onSubmit={handleAddReply}>
-        <div className={styles.buttonContainer}>
+      <form ref={formRef} onSubmit={handleAddReply} className="text-darkColor ">
+        <div className='flex flex-col'>
           <Button onClick={handleDeleteComment}>Delete</Button>
-          <Label htmlFor="replyText">Reply</Label>
+          <Label htmlFor="replyText" className="text-lightColor">Reply</Label>
           <Input id="replyText" name="replyText" />
           <Button type="submit">Send</Button>
         </div>

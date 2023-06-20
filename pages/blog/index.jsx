@@ -14,7 +14,7 @@ export default function Blog() {
   } = useSWR(postsCacheKey, getPosts)
 
   return (
-    <section>
+    <section className="w-full">
       <Heading>Blog</Heading>
       {data?.map((post) => (
         <Link
@@ -23,8 +23,8 @@ export default function Blog() {
           href={`/blog/${post.slug}`}
         >
           <div className="w-full flex flex-col">
-            <p>{post.title}</p>
-            <time className={styles.date}>{post.created_at}</time>
+            <p className="text-xl">{post.title}</p>
+            <time className='text-sm text-accentPurple'>{post.created_at.slice(0, 16)}</time>
           </div>
         </Link>
       ))}

@@ -38,7 +38,7 @@ export default function AddComment({ postId }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div className='w-full pt-2'>
       <h2>Add a comment</h2>
       <form ref={formRef} className={styles.form} onSubmit={handleOnSubmit}>
         <div className={styles.inputContainer}>
@@ -48,10 +48,10 @@ export default function AddComment({ postId }) {
 
         <div className={styles.inputContainer}>
           <Label htmlFor="comment">Comment</Label>
-          <TextArea id="comment" name="comment" />
+          <TextArea id="comment" name="comment" className='bg-lightColor'/>
         </div>
 
-        <Button className={styles.addCommentButton} type="submit">
+        <Button className='text-darkColor' type="submit">
           Submit
         </Button>
       </form>
