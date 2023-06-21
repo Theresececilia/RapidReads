@@ -1,4 +1,4 @@
-import supabase from '../lib/supabaseClient'
+import {supabase} from '../lib/supabaseClient'
 export const searchCacheKey = '/api/search';
 
 export const searchPosts = async (_, {arg: searchQuery }) => {

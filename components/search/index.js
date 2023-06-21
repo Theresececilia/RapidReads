@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { searchPosts, searchCacheKey } from '../../api-routes/search';
+import { usePathname } from 'next/navigation'
 import useSWRMutation from 'swr/mutation';
+import SearchResults from '@components/searchResults/index';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearched, setIsSearched] = useState(false)
 
   const { trigger: searchTrigger, data: { data = [] } = {} } = useSWRMutation(
     `${searchCacheKey}/${searchQuery}`,
@@ -23,17 +27,27 @@ const Search = () => {
   }, [searchQuery, searchTrigger]);
 
   const formRef = useRef();
+  const path = usePathname()
+
+  useEffect(() => {
+    setSearchQuery('');
+    setSearchResults([])
+    setIsSearched(false)
+  }, [path]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
     await searchTrigger(searchQuery);
+    setIsSearched(true)
+    setSearchResults(data || []);
   };
 
   const handleOnChange = (event) => {
     setSearchQuery(event.target.value);
   };
-
+ 
   return (
+  <>
     <form
       onSubmit={handleSearch}
       className="flex items-center space-x-5 bg-lightColor rounded-md p-2 m-6 w-full"
@@ -53,7 +67,18 @@ const Search = () => {
       >
         Search
       </button>
+     
     </form>
+     {searchResults.length > 0 && (
+        <SearchResults results={searchResults} />
+      )}
+      {(searchResults.length === 0 && isSearched) && (
+        <div className='mt-4'>
+        <span className='text-dark-700'>no results for </span>
+        <span>{`"${searchQuery}"`}</span>
+    </div>
+      )}
+      </>
   );
 };
 
