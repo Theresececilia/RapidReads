@@ -4,13 +4,13 @@ import Image from 'next/image';
 
 const SearchResults = ({ results }) => {
   return (
-    <div className='grid grid-cols-4 gap-x-4 gap-y-16 p-8 bg-accentGreen'>
-      {results.map(({ id, cover_image, slug, title }) => (
+    <div className='grid grid-cols-3 gap-x-4 gap-y-16 p-8 absolute top-1/2 md:top-1/4 bg-darkColor'>
+      {results.map(({ id, image, slug, title }) => (
         <Link key={id} href={`/blog/${slug}`}>
-          {cover_image ? (
+          {image ? (
             <Image
               className='aspect-square object-cover border-1 border-dark-900'
-              src={cover_image}
+              src={image}
               alt=''
               width={664}
               height={664}
