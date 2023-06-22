@@ -8,17 +8,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accentGreen: '#99ddcc',
-        accentPurple: '#c4b5fd',
-        lightColor: '#Ffffff',
+        accentGreen: '#abff36',
+        accentPurple: '#9377FF',
+        lightColor: '#fafafa',
         darkColor: '#232323',
-        darkGrey: '#4c4c4c',
+        darkGrey: '#747377',
         lightGrey: '#696969',
       },
       backgroundImage: {
-      footergradient : "linear-gradient(225deg, #4c4c4c 7%, #c4b5fd 37%, #ffffff 50%, #99ddcc 69%, #223322 94%"
-
-      }
+        footergradient:
+          'linear-gradient(225deg, #4c4c4c 7%, #c4b5fd 37%, #ffffff 50%, #99ddcc 69%, #223322 94%',
+      },
     },
   },
   plugins: [],

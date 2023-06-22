@@ -4,11 +4,10 @@ import classNames from "classnames";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 
-
 export default function Navbar() {
-  const supabaseClient = useSupabaseClient()
-  const user = useUser()
-  const router = useRouter()
+  const supabaseClient = useSupabaseClient();
+  const user = useUser();
+  const router = useRouter();
   let pathname = usePathname() || "/";
   if (pathname.includes("/blog/")) {
     pathname = "/blog";
@@ -26,50 +25,48 @@ export default function Navbar() {
     },
     "/create-post": {
       name: "Create post",
-      reqAuth: true
+      reqAuth: true,
     },
     "/login": {
       name: "Login",
-      reqAuth: false
+      reqAuth: false,
     },
     "/logout": {
       name: "Logout",
       reqAuth: true,
       onClick: async () => {
-        await supabaseClient.auth.signOut()
-        router.push("/login")
-      }
-    }
+        await supabaseClient.auth.signOut();
+        router.push("/login");
+      },
+    },
   };
 
   return (
     <aside>
       <div>
         <nav id="nav">
-          <div>
+          <div className="flex justify-evenly md:justify-end">
             {Object.entries(navItems).map(([path, { name, reqAuth, onClick }]) => {
               const isActive = path === pathname;
+              const linkClasses = classNames("md:mr-4 lg:mr-8 hover:text-accentGreen", {
+                "text-lightColor": isActive,
+                "text-gray-500": !isActive,
+              });
 
-              if ((reqAuth && !user) || (path === "/login" && user )) {
-                return null
+              if ((reqAuth && !user) || (path === "/login" && user)) {
+                return null;
               }
 
-              if ( path === "/logout") {
+              if (path === "/logout") {
                 return (
-                  <button 
-                  key={path} 
-                  onClick={onClick}
-                  >
+                  <button key={path} onClick={onClick}>
                     Sign out
-                    </button>
-                )
+                  </button>
+                );
               }
               return (
-                <Link
-                  key={path}
-                  href={path}
-                >
-                  <span>{name}</span>
+                <Link key={path} href={path}>
+                  <p className={linkClasses}>{name}</p>
                 </Link>
               );
             })}
