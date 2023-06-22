@@ -1,6 +1,5 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import styles from "./sidebar.module.css";
 import classNames from "classnames";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
@@ -44,10 +43,10 @@ export default function Navbar() {
   };
 
   return (
-    <aside className={styles.container}>
-      <div className={styles.sticky}>
-        <nav className={styles.navigation} id="nav">
-          <div className={styles.navigationItemWrapper}>
+    <aside>
+      <div>
+        <nav id="nav">
+          <div>
             {Object.entries(navItems).map(([path, { name, reqAuth, onClick }]) => {
               const isActive = path === pathname;
 
@@ -60,10 +59,6 @@ export default function Navbar() {
                   <button 
                   key={path} 
                   onClick={onClick}
-                  className={classNames(styles.navigationBtn, {
-                    [styles.textNeutral]: !isActive,
-                    [styles.fontBold]: isActive,
-                  })}
                   >
                     Sign out
                     </button>
@@ -73,12 +68,8 @@ export default function Navbar() {
                 <Link
                   key={path}
                   href={path}
-                  className={classNames(styles.navigationItem, {
-                    [styles.textNeutral]: !isActive,
-                    [styles.fontBold]: isActive,
-                  })}
                 >
-                  <span className={styles.linkName}>{name}</span>
+                  <span>{name}</span>
                 </Link>
               );
             })}

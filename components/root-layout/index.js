@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import styles from './root-layout.module.css';
 import Sidebar from '../sidebar';
 import Search from '../search';
 import Logo from '../../public/assets/images/rapidreads-logo.png';
@@ -22,9 +21,8 @@ export default function RootLayout({ children }) {
       </div>
       <div className="md:flex md:mt-8 ">
         <Sidebar />
-        <main className={styles.mainContent}>{children}</main>
+        <main>{children}</main>
       </div>
-      
     </div>
     <Footer/>
   </>

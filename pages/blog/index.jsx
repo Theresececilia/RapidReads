@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./blog.module.css";
 import Heading from "@components/heading";
 import { getPosts, postsCacheKey } from "../../api-routes/posts";
 import useSWR from 'swr'
@@ -19,7 +18,6 @@ export default function Blog() {
       {data?.map((post) => (
         <Link
           key={post.slug}
-          className={styles.link}
           href={`/blog/${post.slug}`}
         >
           <div className="w-full flex flex-col">

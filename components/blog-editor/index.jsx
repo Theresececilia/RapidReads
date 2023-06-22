@@ -1,4 +1,3 @@
-import styles from "./blog-editor.module.css";
 import Editor from "@components/editor/editor";
 import { useState } from "react";
 import Button from "@components/button";
@@ -32,7 +31,7 @@ export default function BlogEditor({
   return (
     <>
       <Heading>{heading}</Heading>
-      <form onSubmit={handleOnSubmit} className={styles.container}>
+      <form onSubmit={handleOnSubmit}>
         <ImageUpload
           src={image}
           onImageUpload={(file) => setImage(file)}
@@ -41,16 +40,14 @@ export default function BlogEditor({
         <Label>Title</Label>
         <Input
           name="title"
-          className={styles.titleInput}
           value={titleInput}
           onChange={(e) => setTitleInput(e.target.value)}
         />
         <Editor
           content={content}
-          className={styles.editor}
           onChange={handleOnChange}
         />
-        <Button className={styles.uploadButton} type="submit">
+        <Button type="submit">
           {buttonText}
         </Button>
       </form>

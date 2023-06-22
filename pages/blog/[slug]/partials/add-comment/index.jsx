@@ -3,7 +3,6 @@ import Button from "@components/button";
 import Input from "@components/input";
 import Label from "@components/label";
 import TextArea from "@components/text-area";
-import styles from "./add-comment.module.css";
 import {
   addComment,
   commentsCacheKey,
@@ -40,13 +39,13 @@ export default function AddComment({ postId }) {
   return (
     <div className='w-full pt-2'>
       <h2>Add a comment</h2>
-      <form ref={formRef} className={styles.form} onSubmit={handleOnSubmit}>
-        <div className={styles.inputContainer}>
+      <form ref={formRef} onSubmit={handleOnSubmit}>
+        <div>
           <Label htmlFor="author">Author</Label>
           <Input id="author" name="author" />
         </div>
 
-        <div className={styles.inputContainer}>
+        <div>
           <Label htmlFor="comment">Comment</Label>
           <TextArea id="comment" name="comment" className='bg-lightColor'/>
         </div>

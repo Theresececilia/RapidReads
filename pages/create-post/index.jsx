@@ -3,7 +3,6 @@ import { createSlug } from "@/utils/createSlug";
 import { addPost, postsCacheKey } from "../../api-routes/posts";
 import { useRouter } from "next/router";
 import useSWRMutation from 'swr/mutation';
-import useSWR from 'swr';
 import { useUser } from "@supabase/auth-helpers-react";
 
 

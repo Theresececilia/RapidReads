@@ -1,5 +1,4 @@
 import Button from "@components/button";
-import styles from "./comment.module.css";
 import { commentsCacheKey, deleteComment } from "@/api-routes/comments";
 import { addReply, getReplies, deleteReply, replyCacheKey } from "@/api-routes/replies";
 import { useRef } from "react";
@@ -59,7 +58,7 @@ export default function Comment({ comment, createdAt, author, id: commentId }) {
     <div className='w-2/'>
       <p>{comment}</p>
       <p className='text-accentPurple font-bold'>- {author}</p>
-      <time className={styles.date}>{createdAt}</time>
+      <time>{createdAt}</time>
 
       {data.map((reply) => (
         <div key={reply.id}>

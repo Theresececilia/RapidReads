@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import styles from "./blog-post.module.css";
 import Comments from "./partials/comments";
 import AddComment from "./partials/add-comment";
 import Button from "@components/button";
@@ -39,15 +38,15 @@ export default function BlogPost() {
 
   return (
     <>
-      <section className={styles.container}>
+      <section>
         <Heading>{data.title}</Heading>
         {data?.image && <BlogImageBanner src={data.image} alt={data.title} />}
-        <div className={styles.dateContainer}>
-          <time className={styles.date}>{data.created_at}</time>
-          <div className={styles.border} />
+        <div>
+          <time>{data.created_at}</time>
+          <div/>
         </div>
         <div dangerouslySetInnerHTML={{ __html: data.body }} />
-        <span className={styles.author}>
+        <span>
           Author: {data?.Users?.alias ?? 'Ghost Writer'}
         </span>
 
