@@ -63,7 +63,7 @@ const Search = () => {
       />
       <button
         type="submit"
-        className="p-2 border-2 border-darkGrey rounded-md bg-lightGrey"
+        className="p-2 text-lightColor border-2 border-darkGrey rounded-md bg-lightGrey"
       >
         Search
       </button>

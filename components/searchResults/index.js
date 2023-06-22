@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 const SearchResults = ({ results }) => {
   return (
-    <div className='grid grid-cols-3 gap-x-4 gap-y-16 p-8 absolute top-1/2 md:top-1/4 bg-darkColor'>
+    <div className='grid grid-cols-2 md:grid-cols-3 gap-6 p-8 absolute top-1/3 md:top-1/4 bg-darkColor w-auto z-50'>
       {results.map(({ id, image, slug, title }) => (
-        <Link key={id} href={`/blog/${slug}`}>
+        <Link key={id} href={`/blog/${slug}`} className='w-1/2'>
           {image ? (
             <Image
               className='aspect-square object-cover border-1 border-dark-900'

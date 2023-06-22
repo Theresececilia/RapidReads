@@ -9,18 +9,13 @@ const LoginPage = () => {
   const supabaseClient = useSupabaseClient()
   const user = useUser()
   const router = useRouter()
-  // const [data, setData] = useState()
+
 
   useEffect(() => {
     if (user) {
       router.push("/")
     }
   }, [user, router])
-
-  // if (!user)
-  //   return (
-     
-  //   )
 
   return (
     <>
@@ -31,9 +26,6 @@ const LoginPage = () => {
         providers={[]}
         socialLayout="horizontal"
       />
-      {/* <button onClick={() => supabaseClient.auth.signOut()}>Sign out</button>
-      <p>user:</p>
-      <pre>{JSON.stringify(user, null, 2)}</pre> */}
     </>
   )
 }

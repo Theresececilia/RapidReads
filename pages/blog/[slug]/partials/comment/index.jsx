@@ -64,7 +64,7 @@ export default function Comment({ comment, createdAt, author, id: commentId }) {
       {data.map((reply) => (
         <div key={reply.id}>
           <p>| {reply.reply}</p>
-          <button onClick={() => handledeleteReply(reply.id)} className="font-light pb-2 ">Remove reply</button>
+          <button onClick={() => handledeleteReply(reply.id)} className="font-light pb-2 text-lightColor ">Remove reply</button>
         </div>
       ))}
 
