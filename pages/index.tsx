@@ -26,7 +26,7 @@ export default function Home() {
                  alt={post.title}
                  width={150}
                  height={150}
-                 className="rounded-md md:w-full overflow-hidden object-cover aspect-square"
+                 className=" md:w-full overflow-hidden object-cover aspect-square"
                />
                <p className="text-sm text-ellipsis overflow-hidden w-38 md:text-black md:font-bold">
                  {post.title}
