@@ -32,68 +32,68 @@ const MenuBar = ({ editor, openModal }) => {
 
   return (
     <div className={styles.container}>
-      <Button
+      <button
         className="menu-button"
         onClick={() => editor.chain().focus().undo().run()}
         disabled={!editor.can().undo()}
       >
         <Icons.RotateLeft />
-      </Button>
-      <Button
+      </button>
+      <button
         className="menu-button"
         onClick={() => editor.chain().focus().redo().run()}
         disabled={!editor.can().redo()}
       >
         <Icons.RotateRight />
-      </Button>
-      <Button
+      </button>
+      <button
         className={classNames("menu-button", {
           [styles.isActive]: editor.isActive("link"),
         })}
         onClick={openModal}
       >
         <Icons.Link />
-      </Button>
-      <Button
+      </button>
+      <button
         className={classNames("menu-button", {
           [styles.isActive]: editor.isActive("bold"),
         })}
         onClick={toggleBold}
       >
         <Icons.Bold />
-      </Button>
-      <Button
+      </button>
+      <button
         className={classNames("menu-button", {
           [styles.isActive]: editor.isActive("underline"),
         })}
         onClick={toggleUnderline}
       >
         <Icons.Underline />
-      </Button>
-      <Button
+      </button>
+      <button
         className={classNames("menu-button", {
           [styles.isActive]: editor.isActive("italic"),
         })}
         onClick={toggleItalic}
       >
         <Icons.Italic />
-      </Button>
-      <Button
+      </button>
+      <button
         className={classNames("menu-button", {
           [styles.isActive]: editor.isActive("strike"),
         })}
         onClick={toggleStrike}
       >
         <Icons.Strikethrough />
-      </Button>
-      <Button
+      </button>
+      <button
         className={classNames("menu-button", {
           [styles.isActive]: editor.isActive("code"),
         })}
         onClick={toggleCode}
       >
         <Icons.Code />
-      </Button>
+      </button>
     </div>
   );
 };

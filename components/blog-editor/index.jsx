@@ -29,28 +29,29 @@ export default function BlogEditor({
   };
 
   return (
-    <>
+    <section className="p-4 ">
       <Heading>{heading}</Heading>
-      <form onSubmit={handleOnSubmit}>
+      <form onSubmit={handleOnSubmit} className="flex flex-col">
         <ImageUpload
           src={image}
           onImageUpload={(file) => setImage(file)}
           onReset={() => setImage(null)}
         />
         <Label>Title</Label>
-        <Input
+        <input
           name="title"
           value={titleInput}
           onChange={(e) => setTitleInput(e.target.value)}
+          className="border-2 border-black"
         />
         <Editor
           content={content}
           onChange={handleOnChange}
         />
-        <Button type="submit">
+        <button type="submit" className="bg-lightColor">
           {buttonText}
-        </Button>
+        </button>
       </form>
-    </>
+    </section>
   );
 }

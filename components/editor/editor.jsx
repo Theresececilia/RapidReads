@@ -79,7 +79,7 @@ export default function Editor({ className, onChange, content }) {
   }
 
   return (
-    <div className={classNames(className, "editor")}>
+    <div>
       <MenuBar editor={editor} openModal={openModal} />
       <BubbleMenu
         className="bubble-menu-light"
@@ -87,7 +87,7 @@ export default function Editor({ className, onChange, content }) {
         editor={editor}
         shouldShow={({ editor, view, state, oldState, from, to }) => {
           // only show the bubble menu for links.
-          return from === to && editor.isActive("link");
+          return from === to && editor.isActive('link');
         }}
       >
         <div className={styles.bubbleMenu}>
@@ -96,7 +96,10 @@ export default function Editor({ className, onChange, content }) {
         </div>
       </BubbleMenu>
 
-      <EditorContent className={styles.editorContent} editor={editor} />
+      <EditorContent
+        className="bg-lightColor p-10 text-darkColor border-2 border-black"
+        editor={editor}
+      />
 
       <LinkModal
         url={url}

@@ -60,10 +60,7 @@ const ImageUpload = ({ onImageUpload, onReset, src, className }) => {
   };
 
   return (
-    <div
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}
-    >
+    <div onDragOver={handleDragOver} onDrop={handleDrop}>
       {previewUrl ? (
         <>
           <BlogImageBanner src={previewUrl} alt="Preview" />
@@ -90,6 +87,7 @@ const ImageUpload = ({ onImageUpload, onReset, src, className }) => {
             type="file"
             accept="image/*"
             onChange={handleImageSelect}
+            className="py-4"
           />
         </label>
       )}

@@ -59,9 +59,9 @@ export default function Navbar() {
 
               if (path === "/logout") {
                 return (
-                  <button key={path} onClick={onClick}>
+                  <p key={path} onClick={onClick} className="text-accentPurple">
                     Sign out
-                  </button>
+                  </p>
                 );
               }
               return (
