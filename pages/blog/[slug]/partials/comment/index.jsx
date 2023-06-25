@@ -67,11 +67,11 @@ export default function Comment({ comment, createdAt, author, id: commentId }) {
         </div>
       ))}
 
-      <form ref={formRef} onSubmit={handleAddReply} className="text-darkColor ">
+      <form ref={formRef} onSubmit={handleAddReply}>
         <div className='flex flex-col'>
           <Button onClick={handleDeleteComment}>Delete</Button>
-          <Label htmlFor="replyText" className="text-lightColor">Reply</Label>
-          <Input id="replyText" name="replyText" />
+          <Label htmlFor="replyText">Reply</Label>
+          <Input id="replyText" name="replyText"/>
           <Button type="submit">Send</Button>
         </div>
       </form>

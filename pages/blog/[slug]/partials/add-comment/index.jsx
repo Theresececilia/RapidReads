@@ -37,20 +37,20 @@ export default function AddComment({ postId }) {
   };
 
   return (
-    <div className='w-full pt-2'>
-      <h2>Add a comment</h2>
+    <div className="w-full p-4">
+      <h2 className="text-accentGreen font-semibold">Add a comment</h2>
       <form ref={formRef} onSubmit={handleOnSubmit}>
-        <div>
+        <div className="flex flex-col">
           <Label htmlFor="author">Author</Label>
           <Input id="author" name="author" />
         </div>
 
-        <div>
+        <div className="flex flex-col">
           <Label htmlFor="comment">Comment</Label>
-          <TextArea id="comment" name="comment" className='bg-lightColor'/>
+          <TextArea id="comment" name="comment" className="bg-lightColor" />
         </div>
 
-        <Button className='text-darkColor' type="submit">
+        <Button type="submit">
           Submit
         </Button>
       </form>

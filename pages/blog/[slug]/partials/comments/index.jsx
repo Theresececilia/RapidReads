@@ -13,7 +13,7 @@ export default function Comments({ postId }) {
   );
 
   return (
-    <div>
+    <div className='p-4'>
       <h2 className='text-lg font-semibold'>Comments</h2>
       {data.map((comment) => (
         <Comment key={comment.id} {...comment} />

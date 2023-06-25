@@ -38,7 +38,7 @@ export default function BlogPost() {
 
   return (
     <>
-      <section>
+      <section className="p-4">
         <Heading>{data.title}</Heading>
         {data?.image && <BlogImageBanner src={data.image} alt={data.title} />}
         <div>
@@ -51,14 +51,16 @@ export default function BlogPost() {
         </span>
 
         {/* The Delete & Edit part should only be showed if you are authenticated and you are the author */}
-        <div className='flex text-darkColor mt-2'>
+        <div className='flex text-lightColor mt-2'>
           <Button onClick={() => handleDeletePost(data.id)} className='mr-2'>Delete</Button>
           <Button onClick={handleEditPost}>Edit</Button>
         </div>
+
       </section>
       {/* This component should only be displayed if a user is authenticated */}
       <AddComment postId={data.id} />
       <Comments postId={data.id} />
+      
     </>
   );
 }

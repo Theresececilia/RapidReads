@@ -28,10 +28,10 @@ export default function Home() {
                  height={150}
                  className=" md:w-full overflow-hidden object-cover aspect-square"
                />
-               <p className="text-sm text-ellipsis overflow-hidden w-38 md:text-black md:font-bold">
+               <p className="text-sm text-ellipsis overflow-hidden w-38 md:font-bold">
                  {post.title}
                </p>
-               <time className=" md:text-black md:font-semibold">
+               <time className="md:font-semibold">
                  {post.created_at.slice(0, 10)}
                </time>
              </div>
