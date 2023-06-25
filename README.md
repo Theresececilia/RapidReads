@@ -16,7 +16,8 @@ This is a CRUD (Create, Read, Update, Delete) project for a website where users 
 
 - Frontend: Next.js. 
 - Backend: Node.js
-- Database: Supabase
+- Database: Supabase, PostgreSQL
+- SWR: SWR automatically manages caching, revalidation, and maintains a real-time, always-synced state.
 - Authentication: Supabase Authentication
 - Deployment: Vercel
 
@@ -51,7 +52,7 @@ Contributions to improve the project are welcome. Here are a few suggestions:
 If you'd like to contribute, please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch for your feature: `git checkout -b feature-name`
+2. Create a new branch for your feature: `git switch -c feature-name`
 3. Implement your changes.
 4. Commit and push your changes: `git commit -m 'Add some feature'` and `git push origin feature-name`
 5. Create a new pull request.
