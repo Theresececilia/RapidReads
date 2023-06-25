@@ -53,7 +53,7 @@ export default function BlogPost() {
         <div dangerouslySetInnerHTML={{ __html: data.body }} />
         <span className='text-xl py-4'>Author: {data?.Users?.alias ?? 'Ghost Writer'}</span>
 
-        {user && data?.Users?.id === user.id && (
+        {user && (
           <div className="flex text-lightColor mt-2">
             <Button onClick={() => handleDeletePost(data.id)} className="mr-2">
               Delete

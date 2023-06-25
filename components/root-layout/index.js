@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           </Link>
         <Sidebar />
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="w-full">
           <Search />
         </div>
         <div className="">

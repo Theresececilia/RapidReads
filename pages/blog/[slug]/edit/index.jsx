@@ -22,7 +22,6 @@ export default function EditBlogPost() {
 
   const handleOnSubmit = async ({ editorContent, titleInput, image }) => {
     const slug = createSlug(titleInput);
-    console.log({ editorContent, titleInput, image, slug });
     const id = post.id
 
     const editedPost = {

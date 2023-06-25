@@ -35,7 +35,7 @@ export default function About() {
         </p>
       </div>
       <div className=" flex flex-col justify-between border-y-2 border-r-2 border-black p-4 bg-lightColor">
-        <h3 className="md:text-4xl text-accentPurple pt-8 pl-2 ">
+        <h3 className="md:text-xl text-accentPurple pt-8 pl-2 ">
           H
           <br />A
           <br />P

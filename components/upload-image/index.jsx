@@ -83,12 +83,13 @@ const ImageUpload = ({ onImageUpload, onReset, src, className }) => {
       ) : (
         <label>
           <span>Upload photo</span>
-          <input
+          {/* <input
             type="file"
             accept="image/*"
             onChange={handleImageSelect}
             className="py-4"
-          />
+          /> */}
+          
         </label>
       )}
       <input
@@ -96,6 +97,7 @@ const ImageUpload = ({ onImageUpload, onReset, src, className }) => {
         type="file"
         accept="image/*"
         onChange={handleImageSelect}
+        className="py-4"
       />
     </div>
   );
