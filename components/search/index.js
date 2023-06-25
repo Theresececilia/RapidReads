@@ -50,7 +50,7 @@ const Search = () => {
   <>
     <form
       onSubmit={handleSearch}
-      className="flex items-center space-x-5 bg-lightColor p-2 m-6 w-5/6 md:w-full"
+      className="flex items-center space-x-5 bg-lightColor p-2 m-4 -full"
       ref={formRef}
     >
       <input

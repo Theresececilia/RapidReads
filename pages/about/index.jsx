@@ -3,8 +3,8 @@ import { Ghost } from 'lucide-react'
 
 export default function About() {
   return (
-    <section className="bg-lightColor text-darkColor flex p-2 md:p12">
-      <div className="border-2 border-black">
+    <section className=" text-darkColor flex p-2 md:p12">
+      <div className="border-2 border-black bg-lightColor">
         <h1 className="text-4xl text-darkColor p-4 text-left">About</h1>
         <p className="border-t-2 border-black p-4 ">
           {' '}
@@ -34,8 +34,8 @@ export default function About() {
           imagination.
         </p>
       </div>
-      <div className=" flex flex-col justify-between border-y-2 border-r-2 border-black p-4">
-        <h3 className="md:text-4xl text-accentPurple pt-8 pl-2">
+      <div className=" flex flex-col justify-between border-y-2 border-r-2 border-black p-4 bg-lightColor">
+        <h3 className="md:text-4xl text-accentPurple pt-8 pl-2 ">
           H
           <br />A
           <br />P
