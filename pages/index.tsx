@@ -14,7 +14,7 @@ export default function Home() {
  const randomPosts = data?.sort(() => 0.5 - Math.random()).slice(0, 2);
 
  return (
-   <section className="w-full bg-[url('../public/assets/images/bw-books.jpg')] h-screen p-4 pl-8">
+   <section className="w-full bg-[url('../public/assets/images/bw-books.jpg')] min-h-screen p-4 pl-8">
      <Heading>TRENDING</Heading>
      <div className="flex justify-between">
        <div className="grid md:grid-cols-1 gap-6 md:w-1/5">
