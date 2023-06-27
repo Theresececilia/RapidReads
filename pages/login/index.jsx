@@ -18,15 +18,15 @@ const LoginPage = () => {
   }, [user, router])
 
   return (
-    <>
+    <div className='p-4 md:w-1/2 m-auto'>
      <Auth
-        redirectTo="http://localhost:3000/"
+        redirectTo={process.env.BASE_URL}
         appearance={{ theme: ThemeSupa }}
         supabaseClient={supabaseClient}
         providers={[]}
         socialLayout="horizontal"
       />
-    </>
+    </div>
   )
 }
 

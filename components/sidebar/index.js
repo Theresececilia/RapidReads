@@ -42,13 +42,10 @@ export default function Navbar() {
   };
 
   return (
-    <aside>
-      <div>
-        <nav id="nav">
-          <div className="flex justify-evenly md:justify-end">
+        <nav id="nav" className="flex items-center md:gap-3 md:pr-4 justify-evenly">
             {Object.entries(navItems).map(([path, { name, reqAuth, onClick }]) => {
               const isActive = path === pathname;
-              const linkClasses = classNames("md:mr-4 lg:mr-8 hover:text-accentGreen", {
+              const linkClasses = classNames("hover:text-accentGreen", {
                 "text-lightColor": isActive,
                 "text-gray-500": !isActive,
               });
@@ -59,9 +56,9 @@ export default function Navbar() {
 
               if (path === "/logout") {
                 return (
-                  <p key={path} onClick={onClick} className="text-accentPurple">
+                  <button key={path} onClick={onClick} className="signOutBtn">
                     Sign out
-                  </p>
+                  </button>
                 );
               }
               return (
@@ -70,9 +67,6 @@ export default function Navbar() {
                 </Link>
               );
             })}
-          </div>
         </nav>
-      </div>
-    </aside>
   );
 }

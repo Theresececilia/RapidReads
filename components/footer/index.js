@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import copyleft from '../../public/assets/images/copyleft.png'
+import copyleft from '../../public/assets/images/copyleft.svg'
 
 const Footer = () => {
   return (
